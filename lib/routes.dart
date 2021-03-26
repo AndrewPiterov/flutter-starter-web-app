@@ -17,6 +17,10 @@ class Flurorouter {
     return LandingPage(page: params['name']![0]);
   });
 
+  // static Handler _purchaseHandler = Handler(handlerFunc: (_, params) {
+  //   return LandingPage(page: params['name']![0]);
+  // });
+
   static Handler _mainHandler2 = Handler(
       handlerFunc: (_, params) => LandingPage(
             page: params['name']![0],

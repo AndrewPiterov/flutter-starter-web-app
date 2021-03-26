@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_starter/apps/purchases/purchases.dart';
 import 'package:flutter_web_starter/pages/about.dart';
 import 'package:flutter_web_starter/pages/help.dart';
 import 'package:flutter_web_starter/pages/home.dart';
@@ -24,6 +25,7 @@ List<String> pages = [
   'profile',
   'settings',
   'help',
+  'Purchases',
 ];
 
 List<IconData> icons = [
@@ -32,6 +34,7 @@ List<IconData> icons = [
   Icons.person_rounded,
   Icons.settings_rounded,
   Icons.help_rounded,
+  Icons.shopping_bag
 ];
 
 class _LandingPageState extends State<LandingPage> {
@@ -74,6 +77,7 @@ class _LandingPageState extends State<LandingPage> {
                     Profile(),
                     Settings(),
                     Help(),
+                    PurchaseListView(),
                   ],
                 ),
               ),
