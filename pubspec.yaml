@@ -25,6 +25,7 @@ dependencies:
   fluro: ^2.0.3
   flutter:
     sdk: flutter
+  get: 4.0.0-nullsafety.2
     
 dev_dependencies:
   flutter_test:

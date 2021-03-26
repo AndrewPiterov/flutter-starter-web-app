@@ -18,6 +18,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       onGenerateRoute: Flurorouter.router.generator,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -9,8 +9,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(milliseconds: 1000), () {
-      Navigator.pushNamed(context, '/main/home');
+      Navigator.pushReplacementNamed(context, '/signin');
     });
+
     return Scaffold(
       body: Center(
         child: Container(
