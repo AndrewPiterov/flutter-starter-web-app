@@ -7,9 +7,13 @@ import 'package:flutter_web_starter/pages/settings.dart';
 
 class LandingPage extends StatefulWidget {
   final String page;
-  final String extra;
+  final String? extra;
 
-  const LandingPage({Key key, this.page, this.extra}) : super(key: key);
+  const LandingPage({
+    Key? key,
+    required this.page,
+    this.extra,
+  }) : super(key: key);
   @override
   _LandingPageState createState() => _LandingPageState();
 }
@@ -66,7 +70,7 @@ class _LandingPageState extends State<LandingPage> {
                   index: pages.indexOf(widget.page),
                   children: [
                     Home(),
-                    About(widget.extra),
+                    About(widget.extra ?? 'me'),
                     Profile(),
                     Settings(),
                     Help(),
@@ -87,10 +91,10 @@ class NavItem extends StatefulWidget {
   final Function onTap;
 
   const NavItem({
-    Key key,
-    this.icon,
-    @required this.selected,
-    this.onTap,
+    Key? key,
+    required this.icon,
+    required this.selected,
+    required this.onTap,
   }) : super(key: key);
   @override
   _NavItemState createState() => _NavItemState();

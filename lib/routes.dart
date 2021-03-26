@@ -8,13 +8,14 @@ class Flurorouter {
   static Handler _splashHandler =
       Handler(handlerFunc: (_, params) => SplashScreen());
 
-  static Handler _mainHandler =
-      Handler(handlerFunc: (_, params) => LandingPage(page: params['name'][0]));
+  static Handler _mainHandler = Handler(handlerFunc: (_, params) {
+    return LandingPage(page: params['name']![0]);
+  });
 
   static Handler _mainHandler2 = Handler(
       handlerFunc: (_, params) => LandingPage(
-            page: params['name'][0],
-            extra: params['extra'][0],
+            page: params['name']![0],
+            extra: params['extra']![0],
           ));
 
   static void setupRouter() {
