@@ -1,54 +1,19 @@
-import 'package:fluro/fluro.dart';
-import 'package:flutter_web_starter/apps/signin/signin_page.dart';
-import 'package:flutter_web_starter/ui/main_screen.dart';
-import 'package:flutter_web_starter/ui/splashScreen.dart';
-import 'package:flutter_web_starter/ui/ui.dart';
+import 'package:flutter_web_starter/ui/not_found.dart';
+import 'package:get/get.dart';
 
-class Flurorouter {
-  static final FluroRouter router = FluroRouter();
+import 'apps/main/main.dart';
+import 'apps/signin/signin_page.dart';
+import 'apps/splashscreen/splashscreen.dart';
 
-  static Handler _splashHandler =
-      Handler(handlerFunc: (_, params) => SplashScreen());
-
-  static Handler _loginHandler =
-      Handler(handlerFunc: (_, params) => LoginPage());
-
-  static Handler _mainHandler = Handler(handlerFunc: (_, params) {
-    return LandingPage(page: params['name']![0]);
-  });
-
-  // static Handler _purchaseHandler = Handler(handlerFunc: (_, params) {
-  //   return LandingPage(page: params['name']![0]);
-  // });
-
-  static Handler _mainHandler2 = Handler(
-      handlerFunc: (_, params) => LandingPage(
-            page: params['name']![0],
-            extra: params['extra']![0],
-          ));
-
-  static void setupRouter() {
-    router.define(
-      '/',
-      handler: _splashHandler,
-    );
-
-    router.define(
-      '/signin',
-      handler: _loginHandler,
-      transitionType: UI.defaultTransitionType,
-    );
-
-    router.define(
-      '/main/:name',
-      handler: _mainHandler,
-      transitionType: UI.defaultTransitionType,
-    );
-
-    router.define(
-      '/main/:name/:extra',
-      handler: _mainHandler2,
-      transitionType: UI.defaultTransitionType,
-    );
-  }
-}
+final pages = [
+  SplashScreen.page,
+  GetPage(
+    name: LoginPage.pageTitle,
+    page: () => LoginPage(),
+  ),
+  MainPage.page,
+  GetPage(
+    name: NotFoundView.pageTitle,
+    page: () => NotFoundView(),
+  ),
+];

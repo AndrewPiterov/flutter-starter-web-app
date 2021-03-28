@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_starter/routes.dart';
+import 'package:get/get.dart';
+
+import 'apps/splashscreen/splashscreen.dart';
+import 'routes.dart';
+import 'services/app_logger.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -10,15 +14,17 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Flurorouter.setupRouter();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      onGenerateRoute: Flurorouter.router.generator,
+    return GetMaterialApp(
+      initialRoute: SplashScreen.pageTitle,
+      getPages: pages,
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fade,
+      enableLog: true, // !AppConfig.IS_PRODUCTION,
+      logWriterCallback: Get.find<AppLogger>().getxLog,
     );
   }
 }

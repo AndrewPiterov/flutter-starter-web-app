@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_starter/apps/main/main.dart';
 import 'package:get/get.dart';
 
 import 'controller.dart';
 
 class LoginPage extends GetView<SignInController> {
+  static const pageTitle = '/SignIn';
+
   @override
   Widget build(BuildContext context) {
     Get.put(SignInController());
@@ -17,8 +20,7 @@ class LoginPage extends GetView<SignInController> {
             ),
           ),
           ElevatedButton(
-            onPressed: () =>
-                Navigator.pushReplacementNamed(context, '/main/home'),
+            onPressed: () => Get.offAllNamed(MainPage.pageTitle),
             child: Text('Log In'),
           ),
         ],
