@@ -40,7 +40,7 @@ Route onGenerateRoute(RouteSettings settings) {
     return GetPageRoute(
       settings: settings,
       page: () => PurchaseDetailPage(
-        purchase: Purchase(1, 11, 'asdasd'),
+        purchase: settings.arguments as Purchase,
       ),
     );
   }

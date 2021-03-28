@@ -17,7 +17,7 @@ class MainPage extends GetView<MainController> {
   final _subPages = [
     SubRouteNames.dashboard,
     SubRouteNames.customers,
-    SubRouteNames.purchase,
+    SubRouteNames.purchases,
   ];
 
   @override
@@ -29,16 +29,20 @@ class MainPage extends GetView<MainController> {
             Container(
               width: MediaQuery.of(context).size.width * 0.1,
               color: Colors.pinkAccent,
-              child: Obx(() => Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: _subPages.map((page) {
+              child: Obx(
+                () => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _subPages.map(
+                    (page) {
                       return NavItem(
                         selected: controller.currentPage.value == page,
                         icon: Icons.home,
                         onTap: () => controller.goTo(page),
                       );
-                    }).toList(),
-                  )),
+                    },
+                  ).toList(),
+                ),
+              ),
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
